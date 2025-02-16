@@ -5,12 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/customer")
-public class CustomerController {
-
+@RequestMapping("/api/v1/customers")
+public class CustomersController {
     @GetMapping
-    public String customer() {
-        return "Customer service is running";
+    public String get() {
+        return "Customer Service";
     }
 }
-

@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/cart")
 public class CartController {
-
     @GetMapping
-    public String carts() {
-        return "Cart service is running";
+    public String get() {
+        System.out.println("get called");
+        return "Cart Service";
     }
 }

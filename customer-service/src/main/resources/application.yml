@@ -3,7 +3,7 @@ spring:
     name: "customer-service"
 
 server:
- port: 8083
+  port: 8083
 
 eureka:
   client:
@@ -11,3 +11,5 @@ eureka:
       defaultZone: "http://localhost:8888/eureka/"
     register-with-eureka: true
     fetch-registry: true
+  instance:
+    prefer-ip-address: true
