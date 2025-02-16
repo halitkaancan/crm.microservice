@@ -1,26 +1,23 @@
 package com.hkc.orderservice.controller;
 
+import com.hkc.orderservice.client.ProductClient;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestClient;
 
-import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/v1/orders")
+@RequiredArgsConstructor
 public class OrdersController {
 
-    private final RestClient restClient;
-
-    public OrdersController(RestClient.Builder restClientBuilder) {
-        restClient = restClientBuilder.baseUrl("http://localhost:8084").build();
-    }
+    private final ProductClient productClient;
 
     @GetMapping
     public String order() {
-        String response = restClient.get().uri("api/v1/products").retrieve().body(String.class);
-        System.out.println("Product serviceden dönen cevap " + response);
+        String response = productClient.get();
+        System.out.println(response);
         return "Order service is running";
     }
 }
