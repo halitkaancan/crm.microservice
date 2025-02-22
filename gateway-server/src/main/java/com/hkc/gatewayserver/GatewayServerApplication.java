@@ -8,7 +8,7 @@ public class GatewayServerApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GatewayServerApplication.class, args);
-        System.out.println("App is upp!");
+        System.out.println("Gateway is upp!");
     }
 
 }

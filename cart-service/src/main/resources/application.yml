@@ -1,6 +1,20 @@
 spring:
   application:
     name: "cart-service"
+  cloud:
+    stream:
+      defaultBinder: kafka
+      function:
+        definition: orderConsumerFunction
+      bindings:
+        orderConsumerFunction-in-0:
+          destination: order-topic
+          content-type: application/json
+          group: cart-group
+      kafka:
+        binder:
+          brokers: localhost:9092
+
 
 server:
   port: 8082
